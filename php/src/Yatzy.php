@@ -15,21 +15,11 @@ final class Yatzy
         return count(array_unique($dice)) === 1 ? 50 : 0;
     }
 
-    public static function ones($d1, $d2, $d3, $d4, $d5)
+    public static function ones(array $dice): int
     {
-        $sum = 0;
-        if ($d1 == 1)
-            $sum += 1;
-        if ($d2 == 1)
-            $sum += 1;
-        if ($d3 == 1)
-            $sum += 1;
-        if ($d4 == 1)
-            $sum += 1;
-        if ($d5 == 1)
-            $sum += 1;
+        $countedValues = array_count_values($dice);
 
-        return $sum;
+        return $countedValues[1] ?? 0;
     }
 
     public static function twos($d1, $d2, $d3, $d4, $d5)

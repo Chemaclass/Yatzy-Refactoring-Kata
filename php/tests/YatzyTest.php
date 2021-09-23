@@ -10,15 +10,13 @@ class YatzyTest extends TestCase
 {
     public function test_chance_scores_sum_of_all_dice(): void
     {
-        self::assertSame(15, Yatzy::chance(2, 3, 4, 5, 1));
-        self::assertSame(16, Yatzy::chance(3, 3, 4, 5, 1));
+        self::assertSame(15, Yatzy::chance([2, 3, 4, 5, 1]));
+        self::assertSame(16, Yatzy::chance([3, 3, 4, 5, 1]));
     }
 
     public function test_yatzy_scores_50(): void
     {
-        $expected = 50;
-        $actual = Yatzy::yatzyScore([4, 4, 4, 4, 4]);
-        self::assertSame($expected, $actual);
+        self::assertSame(50, Yatzy::yatzyScore([4, 4, 4, 4, 4]));
         self::assertSame(50, Yatzy::yatzyScore([6, 6, 6, 6, 6]));
         self::assertSame(0, Yatzy::yatzyScore([6, 6, 6, 6, 3]));
     }

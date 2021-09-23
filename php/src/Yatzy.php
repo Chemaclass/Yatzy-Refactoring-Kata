@@ -3,17 +3,11 @@ declare(strict_types=1);
 
 namespace Yatzy;
 
-class Yatzy
+final class Yatzy
 {
-    public static function chance($d1, $d2, $d3, $d4, $d5)
+    public static function chance(int $d1, int $d2, int $d3, int $d4, int $d5): int
     {
-        $total = 0;
-        $total += $d1;
-        $total += $d2;
-        $total += $d3;
-        $total += $d4;
-        $total += $d5;
-        return $total;
+        return array_sum([$d1, $d2, $d3, $d4, $d5,]);
     }
 
     public static function yatzyScore($dice)
@@ -210,7 +204,7 @@ class Yatzy
         $_2 = false;
         $i = 0;
         $_2_at = 0;
-        $_3 = False;
+        $_3 = false;
         $_3_at = 0;
 
         $tallies = array_fill(0, 6, 0);
@@ -222,14 +216,14 @@ class Yatzy
 
         foreach (range(0, 5) as $i) {
             if ($tallies[$i] == 2) {
-                $_2 = True;
+                $_2 = true;
                 $_2_at = $i + 1;
             }
         }
 
         foreach (range(0, 5) as $i) {
             if ($tallies[$i] == 3) {
-                $_3 = True;
+                $_3 = true;
                 $_3_at = $i + 1;
             }
         }

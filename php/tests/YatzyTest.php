@@ -8,12 +8,9 @@ use Yatzy\Yatzy;
 
 class YatzyTest extends TestCase
 {
-
     public function test_chance_scores_sum_of_all_dice(): void
     {
-        $expected = 15;
-        $actual = Yatzy::chance(2, 3, 4, 5, 1);
-        self::assertSame($expected, $actual);
+        self::assertSame(15, Yatzy::chance(2, 3, 4, 5, 1));
         self::assertSame(16, Yatzy::chance(3, 3, 4, 5, 1));
     }
 

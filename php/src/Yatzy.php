@@ -5,6 +5,14 @@ namespace Yatzy;
 
 final class Yatzy
 {
+
+    private array $dice;
+
+    public function __construct(array $dice)
+    {
+        $this->dice = $dice;
+    }
+
     public static function chance(array $dice): int
     {
         return array_sum($dice);
@@ -56,15 +64,6 @@ final class Yatzy
         return $s;
     }
 
-    public function __construct($d1, $d2, $d3, $d4, $_5)
-    {
-        $this->dice = array_fill(0, 6, 0);
-        $this->dice[0] = $d1;
-        $this->dice[1] = $d2;
-        $this->dice[2] = $d3;
-        $this->dice[3] = $d4;
-        $this->dice[4] = $_5;
-    }
 
     public function fours()
     {
@@ -77,7 +76,7 @@ final class Yatzy
         return $sum;
     }
 
-    public function Fives()
+    public function fives()
     {
         $s = 0;
         $i = 0;
